@@ -12,6 +12,26 @@
 html,body{margin:0;background:#FCFBF9}
 a{color:#8A6F3C}a:hover{color:#6E5527}
 img,video{max-width:100%}
+html{scrollbar-width:none}
+::-webkit-scrollbar{display:none}
+@media (max-width: 720px){
+.herb-hero{height:auto !important;min-height:0 !important;max-height:none !important;display:flex;flex-direction:column}
+.herb-hero-media{position:relative !important;inset:auto !important;height:56vh;height:56svh;min-height:340px}
+.herb-hero-media img{object-position:96% 50% !important}
+.herb-hero-overlay{position:static !important;pointer-events:auto}
+.herb-hero-overlay>div{padding:0 !important}
+.herb-hero-panel{max-width:none !important;background:#FCFBF9 !important;-webkit-backdrop-filter:none !important;backdrop-filter:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;padding:30px 24px 36px !important;gap:16px !important}
+.herb-hero-panel h1{font-size:31px !important}
+.herb-hero-panel p{font-size:15.5px !important}
+.herb-hero-loc{font-size:19px !important}
+.herb-hero-dots{bottom:12px !important}
+.herb-hero-dots button{width:38px !important;height:38px !important}
+.herb-nav{gap:6px 14px !important;font-size:13px !important}
+#kollektion figure{margin:0 auto !important}
+#kollektion figcaption{align-items:center !important;text-align:center !important}
+.herb-nav a{padding:4px 0 !important}
+header>div{padding:14px 20px !important}
+}
 </style>
 </head>
 <body>
@@ -23,7 +43,7 @@ img,video{max-width:100%}
         <span style="font-family: 'Cormorant', serif; font-weight: 600; font-size: 27px; letter-spacing: .12em">HERB</span>
         <span style="font-family: 'Cormorant', serif; font-style: italic; font-size: 19px; color: #8A6F3C">Wanduhren</span>
       </div>
-      <nav style="display: flex; flex-wrap: wrap; gap: 30px; font-size: 14.5px">
+      <nav class="herb-nav" style="display: flex; flex-wrap: wrap; gap: 30px; font-size: 14.5px">
         <a href="#montage" style="color: #282C2E; text-decoration: none; padding: 8px 0">Montage</a>
         <a href="#galerie" style="color: #282C2E; text-decoration: none; padding: 8px 0">Galerie</a>
         <a href="#kollektion" style="color: #282C2E; text-decoration: none; padding: 8px 0">Kollektion</a>
@@ -33,19 +53,10 @@ img,video{max-width:100%}
     </div>
   </header>
 
-  <section style="position: relative; height: 780px; overflow: hidden; border-bottom: 1px solid #E6E1D6; background: #FCFBF9">
+  <section class="herb-hero" style="position: relative; height: calc(100vh - 78px); min-height: 640px; max-height: 1100px; overflow: hidden; border-bottom: 1px solid #E6E1D6; background: #FCFBF9">
+    <div class="herb-hero-media" style="position: absolute; inset: 0">
     <img class="herb-hero-a" src="assets/hero_st_tropez.jpg" alt="Salitos St. Tropez Wanduhr mit orangefarbenem Silikonband an einer sonnenbeschienenen Wand, dahinter der Hafen von Saint-Tropez" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; z-index: 1; opacity: 1; transition: opacity 1s ease">
     <img class="herb-hero-b" src="assets/hero_ibiza.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; z-index: 0; opacity: 1; transition: opacity 1s ease">
-    <div style="position: absolute; inset: 0; z-index: 9001; display: flex; align-items: center; pointer-events: none">
-      <div style="max-width: 1320px; width: 100%; margin: 0 auto; padding: 0 28px 40px; box-sizing: border-box">
-        <div style="max-width: 520px; display: flex; flex-direction: column; gap: 26px; pointer-events: auto; background: rgba(252,251,249,.82); -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px); padding: 40px 44px; border: 1px solid rgba(255,255,255,.55); border-radius: 6px; box-shadow: 0 14px 44px rgba(40,44,46,.10)">
-          <span class="herb-hero-loc" style="font-family: 'Cormorant', serif; font-style: italic; font-size: 23px; color: #8A6F3C">St.&nbsp;Tropez &ndash; C&ocirc;te d&rsquo;Azur</span>
-          <h1 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.12; letter-spacing: -0.01em">Die Uhren von Andreas Herb, f&uuml;nfmal so gro&szlig; f&uuml;r die Wand.</h1>
-          <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #4A463E; max-width: 40ch">Die HERB Kollektion als Wanduhr, originalgetreu im Ma&szlig;stab 5:1. Sechs Zifferbl&auml;tter, zwei Armb&auml;nder, ein Quarzwerk, das wirklich die Zeit zeigt.</p>
-          <a href="#kollektion" style="font-size: 16px; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; align-self: flex-start; padding: 6px 0">Zur Kollektion</a>
-        </div>
-      </div>
-    </div>
     <div class="herb-hero-dots" style="position: absolute; left: 0; right: 0; bottom: 22px; z-index: 9002; display: flex; justify-content: center">
       <div style="display: flex; gap: 10px; padding: 8px 12px; background: rgba(252,251,249,.9); border: 1px solid #E6E1D6; border-radius: 999px">
         <button type="button" data-bg="assets/hero_st_tropez.jpg" data-loc="St.&nbsp;Tropez &ndash; C&ocirc;te d&rsquo;Azur" data-walt="Salitos St. Tropez Wanduhr mit orangefarbenem Silikonband an einer sonnenbeschienenen Wand, dahinter der Hafen von Saint-Tropez" aria-label="St. Tropez zeigen" style="width: 44px; height: 44px; padding: 2px; border-radius: 50%; border: 2px solid #AB8C52; background: #FFFFFF; cursor: pointer"><img src="assets/dial_st_tropez.jpg" alt="" style="display: block; width: 100%; height: 100%; border-radius: 50%"></button>
@@ -54,6 +65,17 @@ img,video{max-width:100%}
         <button type="button" data-bg="assets/hero_st_barth.jpg" data-loc="St.&nbsp;Barth &ndash; Karibik" data-walt="Salitos St. Barth Wanduhr mit rotem Zifferblatt auf einer Veranda &uuml;ber einer Karibikbucht" aria-label="St. Barth zeigen" style="width: 44px; height: 44px; padding: 2px; border-radius: 50%; border: 2px solid transparent; background: #FFFFFF; cursor: pointer"><img src="assets/dial_st_barth.jpg" alt="" style="display: block; width: 100%; height: 100%; border-radius: 50%"></button>
         <button type="button" data-bg="assets/hero_ascona_blue.jpg" data-loc="Ascona &ndash; Lago Maggiore" data-walt="Ascona Wanduhr mit mintfarbenem Zifferblatt in einer Loggia am Lago Maggiore" aria-label="Ascona Blue zeigen" style="width: 44px; height: 44px; padding: 2px; border-radius: 50%; border: 2px solid transparent; background: #FFFFFF; cursor: pointer"><img src="assets/dial_ascona_blue.jpg" alt="" style="display: block; width: 100%; height: 100%; border-radius: 50%"></button>
         <button type="button" data-bg="assets/hero_ascona_white.jpg" data-loc="Ascona &ndash; Lago Maggiore" data-walt="Ascona Wanduhr mit wei&szlig;em Zifferblatt in einem Salon mit Blick auf die Seepromenade von Ascona" aria-label="Ascona White zeigen" style="width: 44px; height: 44px; padding: 2px; border-radius: 50%; border: 2px solid transparent; background: #FFFFFF; cursor: pointer"><img src="assets/dial_ascona_white.jpg" alt="" style="display: block; width: 100%; height: 100%; border-radius: 50%"></button>
+      </div>
+    </div>
+    </div>
+    <div class="herb-hero-overlay" style="position: absolute; inset: 0; z-index: 9001; display: flex; align-items: center; pointer-events: none">
+      <div style="max-width: 1320px; width: 100%; margin: 0 auto; padding: 0 28px 40px; box-sizing: border-box">
+        <div class="herb-hero-panel" style="max-width: 520px; display: flex; flex-direction: column; gap: 26px; pointer-events: auto; background: rgba(252,251,249,.82); -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px); padding: 40px 44px; border: 1px solid rgba(255,255,255,.55); border-radius: 6px; box-shadow: 0 14px 44px rgba(40,44,46,.10)">
+          <span class="herb-hero-loc" style="font-family: 'Cormorant', serif; font-style: italic; font-size: 23px; color: #8A6F3C">St.&nbsp;Tropez &ndash; C&ocirc;te d&rsquo;Azur</span>
+          <h1 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.12; letter-spacing: -0.01em">Die Uhren von Andreas Herb, f&uuml;nfmal so gro&szlig; f&uuml;r die Wand.</h1>
+          <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #4A463E; max-width: 40ch">Die HERB Kollektion als Wanduhr, originalgetreu im Ma&szlig;stab 5:1. Sechs Zifferbl&auml;tter, zwei Armb&auml;nder, ein Quarzwerk, das wirklich die Zeit zeigt.</p>
+          <a href="#kollektion" style="font-size: 16px; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; align-self: flex-start; padding: 6px 0">Zur Kollektion</a>
+        </div>
       </div>
     </div>
   </section>
