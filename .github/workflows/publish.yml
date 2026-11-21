@@ -1,5 +1,5 @@
 # Builds the showcase image and pushes it to GHCR as
-# ghcr.io/dschunge/herbworld-site:<sha>, the same way business-card and the
+# ghcr.io/dschunge/herb-wall-watches:<sha>, the same way business-card and the
 # other apps on the VPS are deployed. Portainer pulls a tag; it never builds,
 # so a broken build fails here where it can be read.
 name: Publish image
@@ -19,7 +19,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE: herbworld-site
+  IMAGE: herb-wall-watches
 
 jobs:
   publish:

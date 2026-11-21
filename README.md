@@ -7,7 +7,7 @@ hand-assembled). Exported from the Claude Design canvas artifact
 - `site/` — the deployable site: `index.html` + `assets/` (hero scenes,
   dial faces, gallery, the scroll-scrubbed montage video, exploded view).
 - `Dockerfile` + `docker/nginx.conf` — static Nginx image.
-- `.github/workflows/publish.yml` — builds `ghcr.io/dschunge/herbworld-site:<sha>`.
+- `.github/workflows/publish.yml` — builds `ghcr.io/dschunge/herb-wall-watches:<sha>`.
 - `deploy/` — Portainer stack + VPS deployment guide (`deploy/README.md`).
 
 Local preview:

@@ -7,11 +7,11 @@ to the container by name. The site is static, so there is no database and no
 environment beyond `TAG`.
 
 ```
-browser ──▶ NPM (<your-host>) ──proxy network──▶ herbworld:80
+browser ──▶ NPM (<your-host>) ──proxy network──▶ herb-wall-watches:80
 ```
 
 The `website/` folder is repo-shaped (Dockerfile, `.github/`, `site/`). Push
-it as its own GitHub repository (e.g. `dschunge/herbworld-site`), or copy the
+it as its own GitHub repository (e.g. `dschunge/herb-wall-watches`), or copy the
 folder contents into a new repo root — the workflow expects the Dockerfile at
 the repo root.
 
@@ -23,11 +23,11 @@ the repo root.
    the zone redirects HTTP to HTTPS at the edge.
 
 2. **Image.** Push to `main` (or run "Publish image" from the Actions tab)
-   and wait for `ghcr.io/dschunge/herbworld-site:<sha>` to exist.
+   and wait for `ghcr.io/dschunge/herb-wall-watches:<sha>` to exist.
 
    If the repository is private, the package starts private too, and
    Portainer cannot pull it anonymously. Either make the package public
-   (GitHub → profile → Packages → `herbworld-site` → Package settings →
+   (GitHub → profile → Packages → `herb-wall-watches` → Package settings →
    Change visibility → Public), or add a registry in Portainer
    (Registries → Add → Custom, URL `ghcr.io`, username `dschunge`,
    password = a personal access token with `read:packages`) and pick it
@@ -50,7 +50,7 @@ the repo root.
 
    | Domain | Forward Hostname | Forward Port |
    | --- | --- | --- |
-   | `herb.aigentik.org` (or your host) | `herbworld` | `80` |
+   | `herb.aigentik.org` (or your host) | `herb-wall-watches` | `80` |
 
    Forward to the **container name and internal port**, not to
    `127.0.0.1:3381`. NPM runs in a container, so `127.0.0.1` there is NPM
@@ -75,7 +75,7 @@ encoded with `-g 1` so the scroll scrub can seek backwards smoothly. If you
 ever re-encode it, keep that flag or scrubbing will stutter.
 
 **Service names are global on the shared `proxy` network.** Keep it
-`herbworld`.
+`herb-wall-watches`.
 
 **This folder is a copy, not the design source.** The site is designed in the
 Claude Design canvas (artifact "HERB Watch Showcase"). After design changes
