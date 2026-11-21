@@ -1,0 +1,5 @@
+# The image is the static site only; everything else stays out.
+.git
+.github
+deploy
+*.md

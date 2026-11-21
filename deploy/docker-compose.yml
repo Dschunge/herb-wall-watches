@@ -1,0 +1,40 @@
+# HERB wall-watch showcase - VPS deployment, as a Portainer stack.
+# Same shape as business-card and the other apps on the box.
+#
+#   Network
+#     proxy   joins Nginx Proxy Manager. NPM forwards BY CONTAINER NAME over
+#             this network (herbworld:80), never to 127.0.0.1 - inside NPM's
+#             own container that address is NPM.
+#
+#   External: this stack uses it, it does not own it.
+#
+#   TAG
+#     Required, no default. Set it to the short commit SHA the image was
+#     built from - the "Publish image" workflow prints it in its summary.
+#     ":latest" is deliberately not used: Portainer re-pulls the repository
+#     but reuses the image it already has, so a redeploy reports success
+#     while running yesterday's build.
+#
+#   Service name
+#     Compose gives every service a network alias equal to its name on every
+#     network it joins, so on the shared proxy network the name must be
+#     unique across the whole host. "herbworld" is.
+#
+#   No environment. The site is static; the hostname lives only in NPM.
+
+services:
+  herbworld:
+    image: ghcr.io/dschunge/herbworld-site:${TAG:?set TAG to the commit SHA of the image to deploy}
+    container_name: herbworld
+    restart: unless-stopped
+    ports:
+      # For reaching the site from a shell on the VPS only. NPM does not use
+      # this - it forwards to herbworld:80 over the proxy network.
+      - '127.0.0.1:3381:80'
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+    name: proxy
