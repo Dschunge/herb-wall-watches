@@ -18,7 +18,7 @@ img,video{max-width:100%}
 html{scrollbar-width:none}
 ::-webkit-scrollbar{display:none}
 @media (max-width: 720px){
-.herb-vhero{height:46vh;height:46svh;min-height:240px !important}
+.herb-vhero{height:72vh;height:72svh;min-height:420px !important}
 .herb-hero{height:auto !important;min-height:0 !important;max-height:none !important;display:flex;flex-direction:column}
 .herb-hero-media{position:relative !important;inset:auto !important;height:56vh;height:56svh;min-height:340px}
 .herb-hero-media img{object-position:96% 50% !important}
@@ -58,7 +58,10 @@ header>div{padding:14px 20px !important}
   </header>
 
   <section class="herb-vhero" style="position: relative; height: calc(100vh - 78px); min-height: 480px; max-height: 1100px; overflow: hidden; border-bottom: 1px solid #E6E1D6; background: #282C2E">
-    <video class="herb-vhero-video" src="assets/hero_video.mp4" poster="assets/hero_video_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="HERB Markenfilm: K&uuml;stenfahrt zur Villa, wo die Wanduhr an der Wand h&auml;ngt" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></video>
+    <video class="herb-vhero-video" poster="assets/hero_video_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="HERB Markenfilm: K&uuml;stenfahrt zur Villa, wo die Wanduhr an der Wand h&auml;ngt" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <source src="assets/hero_video_mobile.mp4" media="(max-width: 720px)" type="video/mp4">
+      <source src="assets/hero_video.mp4" type="video/mp4">
+    </video>
     <button type="button" class="herb-vhero-sound" aria-label="Ton einschalten" style="position: absolute; right: 22px; bottom: 22px; z-index: 5; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,.55); background: rgba(40,44,46,.55); color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px)">
       <svg class="herb-vhero-ic-off" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
       <svg class="herb-vhero-ic-on" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
@@ -437,6 +440,9 @@ header>div{padding:14px 20px !important}
     /* Full-bleed hero: each dial button swaps watch AND scenery. The new scene
        fades in on top of the old one (fade-in only, so there is no dip). */
     var vhv = document.querySelector('.herb-vhero-video');
+    if (vhv && window.matchMedia && window.matchMedia('(max-width: 720px)').matches) {
+      vhv.poster = 'assets/hero_video_mobile_poster.jpg';
+    }
     if (vhv && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       vhv.removeAttribute('autoplay');
       vhv.pause();
